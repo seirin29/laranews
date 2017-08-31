@@ -22,7 +22,11 @@ Route::resource('posts', 'PostsController');
 Route::get('/contact', 'PostsController@contact');
 Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
 
-
+Route::get('/insert', function(){
+	DB::insert("insert into posts(title, content) values(?, ?)",
+				['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
+				
+});
 
 
 
