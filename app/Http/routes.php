@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -22,29 +24,45 @@ Route::resource('posts', 'PostsController');
 Route::get('/contact', 'PostsController@contact');
 Route::get('post/{id}/{name}/{password}', 'PostsController@show_post');
 
-Route::get('/insert', function(){
-	DB::insert("insert into posts(title, content) values(?, ?)",
-				['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
-				
+Route::get('/read', function(){
+	$posts = Post::all();
+	foreach($posts as $post){
+		return $post->title;
+	}
 });
 
-Route::get('/read', function(){
-	$results = DB::select("select * from posts where id = ?", [2]);
+Route::get('/find', function(){
+	$post = Post::find(3);
+	return $post->title;
+});
+
+
+
+//Database Raw SQL Queries
+
+//Route::get('/insert', function(){
+	//DB::insert("insert into posts(title, content) values(?, ?)",
+				//['PHP with Laravel', 'Laravel is the Best Thing that happen to PHP']);
+				
+//});
+
+//Route::get('/read', function(){
+	//$results = DB::select("select * from posts where id = ?", [2]);
 	//foreach($results as $posts){
 		//return $posts->title;
 	//}
-	return $results;
-});
+	//return $results;
+//});
 
-Route::get('/update', function(){
-	$updated = DB::update("update posts SET title = 'update Laravel' where id = ?", [3]);
-	return $updated;
-});
+//Route::get('/update', function(){
+	//$updated = DB::update("update posts SET title = 'update Laravel' where id = ?", [3]);
+	//return $updated;
+//});
 
 
-Route::get('/delete', function(){
-	$deleted = DB::delete("delete from posts where id = ?", [2]);
-	return $deleted;
-});
+//Route::get('/delete', function(){
+	//$deleted = DB::delete("delete from posts where id = ?", [2]);
+	//return $deleted;
+//});
 
 
