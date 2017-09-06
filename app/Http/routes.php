@@ -73,6 +73,15 @@ Route::get('/delete', function(){
 	$post->delete();
 });
 
+Route::get('/delete2', function(){
+	Post::destroy([6,8]);
+});
+
+Route::get('/delete3', function(){
+	Post::where('id', 15)->delete();
+});
+
+
 
 
 //Database Raw SQL Queries
