@@ -68,6 +68,12 @@ Route::get('/update', function(){
 	Post::where('id', 3)->where('is_admin', 0)->update(['title'=>'New PHP Title', 'content' => 'I love learning Laravel']);
 });
 
+Route::get('/delete', function(){
+	$post = Post::find(3);
+	$post->delete();
+});
+
+
 
 //Database Raw SQL Queries
 
