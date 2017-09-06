@@ -64,6 +64,10 @@ Route::get('/basicupdate', function(){
 	$post->save();
 });
 
+Route::get('/update', function(){
+	Post::where('id', 3)->where('is_admin', 0)->update(['title'=>'New PHP Title', 'content' => 'I love learning Laravel']);
+});
+
 
 //Database Raw SQL Queries
 
