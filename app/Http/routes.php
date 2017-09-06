@@ -41,6 +41,17 @@ Route::get('/findwhere', function(){
 	return $posts;
 });
 
+Route::get('/findmore', function(){
+	$posts = Post::findOrFail(5);
+	return $posts;
+});
+
+Route::get('/basicinsert', function(){
+	$post = new Post;
+	$post->title = 'New Eloquent Title';
+	$post->content = 'Wow Eloquent is really cool';
+	$post->save();
+});
 
 //Database Raw SQL Queries
 
