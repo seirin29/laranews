@@ -85,6 +85,19 @@ Route::get('/softdelete', function(){
 	Post::find(16)->delete();
 });
 
+Route::get('/readsoftdelete', function(){
+	//$post = Post::find(16);
+	//return $post;
+	//$post = Post::withTrashed()->where('id', 16)->get();
+	//return $post;
+	//$post = Post::withTrashed()->get();
+	//return $post;
+	$post = Post::onlyTrashed()->get();
+	return $post;
+	
+});
+
+
 
 
 
