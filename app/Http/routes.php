@@ -28,5 +28,14 @@ Route::get('/insert', function(){
 				
 });
 
+Route::get('/read', function(){
+	$results = DB::select("select * from posts where id = ?", [1]);
+	//foreach($results as $posts){
+		//return $posts->title;
+	//}
+	return $results;
+});
+
+
 
 
