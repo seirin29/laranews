@@ -36,6 +36,12 @@ Route::get('/read', function(){
 	return $results;
 });
 
+Route::get('/update', function(){
+	$updated = DB::update("update posts SET title = 'update Laravel' where id = ?", [1]);
+	return $updated;
+});
+
+
 
 
 
