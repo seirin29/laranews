@@ -29,7 +29,7 @@ Route::get('/insert', function(){
 });
 
 Route::get('/read', function(){
-	$results = DB::select("select * from posts where id = ?", [1]);
+	$results = DB::select("select * from posts where id = ?", [2]);
 	//foreach($results as $posts){
 		//return $posts->title;
 	//}
@@ -37,11 +37,14 @@ Route::get('/read', function(){
 });
 
 Route::get('/update', function(){
-	$updated = DB::update("update posts SET title = 'update Laravel' where id = ?", [1]);
+	$updated = DB::update("update posts SET title = 'update Laravel' where id = ?", [3]);
 	return $updated;
 });
 
 
-
+Route::get('/delete', function(){
+	$deleted = DB::delete("delete from posts where id = ?", [2]);
+	return $deleted;
+});
 
 
