@@ -81,6 +81,11 @@ Route::get('/delete3', function(){
 	Post::where('id', 15)->delete();
 });
 
+Route::get('/softdelete', function(){
+	Post::find(16)->delete();
+});
+
+
 
 
 
