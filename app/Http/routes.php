@@ -2,7 +2,8 @@
 
 use App\Post;
 use App\User;
-
+use App\Role;
+use App\Role_user;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -48,10 +49,10 @@ Route::get('/findmore', function(){
 });
 
 Route::get('/basicinsert', function(){
-	$post = new Post;
-	$post->title = 'New Eloquent Title';
-	$post->content = 'Wow Eloquent is really cool';
-	$post->save();
+	$role_user = new role_users;
+	$role_user->user_id = '1';
+	$role_user->role_id = '1';
+	$role_user->save();
 });
 
 Route::get('/create', function(){

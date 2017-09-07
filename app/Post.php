@@ -17,6 +17,14 @@ class Post extends Model
 	
 	public function user(){
 		return $this->belongsTo('App\user');
-		
 	}
+	
+	public function role(){
+		return $this->belongsTo('App\role');
+	}
+	
+	public function role_user(){
+		return $this->belongsTo('App\role_user');
+	}
+	
 }
