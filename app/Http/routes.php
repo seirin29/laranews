@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,5 +133,11 @@ Route::get('/forcedelete', function(){
 	//$deleted = DB::delete("delete from posts where id = ?", [2]);
 	//return $deleted;
 //});
+
+//One to One Relationship
+Route::get('user/{id}/post', function($id){
+	return User::find($id)->post->title;
+});
+
 
 
