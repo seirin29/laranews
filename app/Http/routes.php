@@ -152,3 +152,24 @@ Route::get('/posts', function(){
 	}
 });
 
+//Many to Many Relationship
+Route::get('/user/{id}/role', function($id){
+	$user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+	return $user;
+	//foreach($user->roles as $role){
+		//echo $role->name;
+	//}
+});
+
+Route::get('user/pivot', function(){
+	$user = user::find(1);
+	
+	foreah($user->roles as $role){
+		echo $role->pivot->created_at;
+	}
+});
+
+
+
+
+
