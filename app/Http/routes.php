@@ -170,8 +170,8 @@ Route::get('user/{id}/pivot', function($id){
 
 //has many through relation
 
-Route::get('/user/country', function(){
-	$country = Country::find(1);
+Route::get('/user/country/{id}', function($id){
+	$country = Country::find($id);
 	foreach($country->posts as $post){
 		return $post->title;
 	}
