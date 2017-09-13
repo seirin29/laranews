@@ -3,7 +3,6 @@
 use App\Post;
 use App\User;
 use App\Role;
-use App\Role_user;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -162,9 +161,8 @@ Route::get('/user/{id}/role', function($id){
 });
 
 Route::get('user/pivot', function(){
-	$user = user::find(1);
-	
-	foreah($user->roles as $role){
+	$user = User::find(1);
+	foreach($user->roles as $role){
 		echo $role->pivot->created_at;
 	}
 });
