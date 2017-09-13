@@ -179,15 +179,15 @@ Route::get('/user/country/{id}', function($id){
 });
 
 //Polymorphic Relations
-Route::get('/post/photos', function(){
-	$post = Post::find(1);
+Route::get('/post/{id}/photos', function($id){
+	$post = Post::find($id);
 	foreach($post->photos as $photo){
 		return $photo->path;
 	}
 });
 
-Route::get('/user/photos', function(){
-	$user = User::find(1);
+Route::get('/user/{id}/photos', function($id){
+	$user = User::find($id);
 	foreach($user->photos as $photo){
 		return $photo->path;
 	}
