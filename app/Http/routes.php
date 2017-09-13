@@ -160,8 +160,8 @@ Route::get('/user/{id}/role', function($id){
 	//}
 });
 
-Route::get('user/pivot', function(){
-	$user = User::find(1);
+Route::get('user/{id}/pivot', function($id){
+	$user = User::find($id);
 	foreach($user->roles as $role){
 		echo $role->pivot->created_at;
 	}
