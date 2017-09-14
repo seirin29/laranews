@@ -201,8 +201,8 @@ Route::get('photo/{id}/post', function($id){
 });
 
 //Polymorphic Many To Many
-Route::get('/post/tag', function(){
-	$post = Post::find(1);
+Route::get('/post/tag/{id}', function($id){
+	$post = Post::find($id);
 	foreach($post->tags as $tag){
 		echo $tag->name;
 	}
