@@ -4,7 +4,7 @@ use App\Post;
 use App\User;
 use App\Role;
 use App\Country;
-use App\Photos;
+use App\Photo;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -192,6 +192,22 @@ Route::get('/user/{id}/photos', function($id){
 		return $photo->path;
 	}
 });
+
+//Polymorphic Relation the invers
+Route::get('photo/{id}/post', function($id){
+	$photo = Photo::findOrFail($id);
+	return $photo->imageable;
+	
+});
+
+//Polymorphic Many To Many
+Route::get('/post/tag', function(){
+	$post = Post::find(1);
+	foreach($post->tags as $tag){
+		echo $tag->name;
+	}
+});
+
 
 
 
