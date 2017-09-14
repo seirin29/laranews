@@ -5,6 +5,11 @@ use App\User;
 use App\Role;
 use App\Country;
 use App\Photo;
+use App\Tag;
+use App\Video;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -207,6 +212,15 @@ Route::get('/post/tag/{id}', function($id){
 		echo $tag->name;
 	}
 });
+
+//Polymorphic Many To Many - retrieving owner
+Route::get('/tag/post', function(){
+	$tag = Tag::find(1);
+	foreach($tag->posts as $post){
+		echo $post->title;
+	}
+});
+
 
 
 
