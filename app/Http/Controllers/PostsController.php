@@ -98,6 +98,7 @@ class PostsController extends Controller
 		//return view('post',compact('id','name','password'));
 	//}
 	
+	
 	public function create()
 	{
 		return view('posts.create');
@@ -130,15 +131,25 @@ class PostsController extends Controller
 		return redirect('/posts');
 	}
 	
-	public function index()
-	{	
-		$posts = Post::all();
-		return view('posts.index', compact('posts'));
+	//public function index()
+	//{	
+		//$posts = Post::all();
+		//return view('posts.index', compact('posts'));
+	//}
+	
+	//gak jalan	
+	public function show($id)
+	{
+		$posts = Post::findOrFail($id);
+		return view('posts.show', compact('post'));
+		
 	}
 	
-	
-	
-	
+	public function edit($id)
+	{
+		$post = Post::findOrFail($id);
+		return view('posts/edit', compact('post'));
+	}
 	
 	
 }
