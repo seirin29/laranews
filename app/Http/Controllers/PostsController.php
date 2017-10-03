@@ -121,11 +121,24 @@ class PostsController extends Controller
 	public function store(Request $request)
 	{
 		//Cara 1
-		//Post::create($request->all());
+		Post::create($request->all());
 		//Cara 2
-		$post = new Post;
-		$post->title = $request->title;
-		$post->save();
+		//$post = new Post;
+		//$post->title = $request->title;
+		//$post->save();
+		
+		return redirect('/posts');
 	}
+	
+	public function index()
+	{	
+		$posts = Post::all();
+		return view('posts.index', compact('posts'));
+	}
+	
+	
+	
+	
+	
 	
 }
