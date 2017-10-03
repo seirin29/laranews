@@ -139,12 +139,12 @@ class PostsController extends Controller
 	}
 	
 	//gak jalan	
-	public function show($id)
-	{
-		$posts = Post::show($id);
-		return view('posts.show', compact('post'));
+	//public function show($id)
+	//{
+		//$posts = Post::findOrFail($id);
+		//return view('posts.show', compact('post'));
 		
-	}
+	//}
 	
 	public function edit($id)
 	{
@@ -158,14 +158,16 @@ class PostsController extends Controller
 		
 		//gak jalan
 		//return $request->all();
-		
+		//gak jalan karna function show
 		$post = Post::findOrFail($id);
 		$post->update($request->all());
-		return redirect('/posts');
-		
-		
+		return redirect('/posts');		
 	}
 	
-	
+	public function destroy($id)
+	{
+		$post = Post::whereId($id)->delete();
+		return redirect('/posts');
+	}
 	
 }

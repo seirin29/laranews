@@ -13,6 +13,14 @@
 		<input type="submit" name="submit" />
 	</form>
 	
+	<form action="/posts/{{$post->id}}" method="post">
+		<input type="hidden" name="_method" value="DELETE" />
+		{{csrf_field()}}
+		<input type="submit" value="DELETE" />
+	</form>
+	
+	
+	
 @stop
 
 
