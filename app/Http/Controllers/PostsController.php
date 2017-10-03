@@ -13,22 +13,22 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
+    //public function index($id)
+    //{
         //
-		return "Hello.. Berhasil Coy, ini post no. ";
-    }
+		//return "Hello.. Berhasil Coy, ini post no. ";
+    //}
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    //public function create()
+    //{
         //
-		return "I am the method that create stuff.";
-    }
+		//return "I am the method that create stuff.";
+    //}
 
     /**
      * Store a newly created resource in storage.
@@ -36,10 +36,10 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    //public function store(Request $request)
+    //{
         //
-    }
+    //}
 
     /**
      * Display the specified resource.
@@ -47,11 +47,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    //public function show($id)
+    //{
         //
-		return "This is the show method... yeayy" . $id;
-    }
+		//return "This is the show method... yeayy" . $id;
+    //}
 
     /**
      * Show the form for editing the specified resource.
@@ -59,10 +59,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    //public function edit($id)
+    //{
         //
-    }
+    //}
 
     /**
      * Update the specified resource in storage.
@@ -71,10 +71,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    //public function update(Request $request, $id)
+    //{
         //
-    }
+    //}
 
     /**
      * Remove the specified resource from storage.
@@ -82,24 +82,40 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    //public function destroy($id)
+    //{
         //
-    }
+    //}
 	
-	public function contact(){
-		$people = ['alex','budi','chandra','dewi','edwin'];
-		return view('contact', compact('people'));
-	}
+	//public function contact(){
+		//$people = ['alex','budi','chandra','dewi','edwin'];
+		//return view('contact', compact('people'));
+	//}
 	
-	public function show_post($id, $name, $password){
+	//public function show_post($id, $name, $password){
 		//return view('post')->with('id',$id);
-		return view('post',compact('id','name','password'));
+		//return view('post',compact('id','name','password'));
+	//}
+	
+	public function create()
+	{
+		return view('posts.create');
 	}
 	
 	
+	//Cara 1
+	//public function store(Request $request)
+	//{
+		//return $request->get('title');
+	//}
 	
 	
+	
+	//Cara 2
+	public function store(Request $request)
+	{
+		return $request->title;
+	}
 	
 	
 	
