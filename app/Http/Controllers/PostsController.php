@@ -131,16 +131,17 @@ class PostsController extends Controller
 		return redirect('/posts');
 	}
 	
-	//public function index()
-	//{	
-		//$posts = Post::all();
-		//return view('posts.index', compact('posts'));
-	//}
+	
+	public function index()
+	{	
+		$posts = Post::all();
+		return view('posts.index', compact('posts'));
+	}
 	
 	//gak jalan	
 	public function show($id)
 	{
-		$posts = Post::findOrFail($id);
+		$posts = Post::show($id);
 		return view('posts.show', compact('post'));
 		
 	}
@@ -150,6 +151,21 @@ class PostsController extends Controller
 		$post = Post::findOrFail($id);
 		return view('posts/edit', compact('post'));
 	}
+	
+	public function update(Request $request, $id)
+	{
+		//return "IT's Working";
+		
+		//gak jalan
+		//return $request->all();
+		
+		$post = Post::findOrFail($id);
+		$post->update($request->all());
+		return redirect('/posts');
+		
+		
+	}
+	
 	
 	
 }
