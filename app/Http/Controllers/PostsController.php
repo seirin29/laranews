@@ -120,8 +120,8 @@ class PostsController extends Controller
 		//return $request->title;
 	//}
 	
-	public function store(Request $request)
-	{
+	//public function store(Request $request)
+	//{
 		//Cara 1
 		//Post::create($request->all());
 		//Cara 2
@@ -129,10 +129,10 @@ class PostsController extends Controller
 		//$post->title = $request->title;
 		//$post->save();
 		//return redirect('/posts');
-		$this->validate($request, [
-			'title' => 'required',
-		]);
-	}
+		//$this->validate($request, [
+			//'title' => 'required',
+		//]);
+	//}
 	
 	
 	public function index()
