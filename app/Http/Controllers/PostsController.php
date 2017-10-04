@@ -122,13 +122,15 @@ class PostsController extends Controller
 	public function store(Request $request)
 	{
 		//Cara 1
-		Post::create($request->all());
+		//Post::create($request->all());
 		//Cara 2
 		//$post = new Post;
 		//$post->title = $request->title;
 		//$post->save();
-		
-		return redirect('/posts');
+		//return redirect('/posts');
+		$this->validate($request, [
+			'title' => 'required',
+		]);
 	}
 	
 	
@@ -169,5 +171,9 @@ class PostsController extends Controller
 		$post = Post::whereId($id)->delete();
 		return redirect('/posts');
 	}
+	
+
+	
+	
 	
 }
