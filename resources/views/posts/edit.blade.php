@@ -27,11 +27,16 @@
 	
 	{!! Form::close() !!}
 	
-	<form action="/posts/{{$post->id}}" method="post">
+	{!! Form::open(['method'=>'DELETE', 'action'=>['PostsController@destroy', $post->id]]) !!}
+		
+		{!! Form::submit('Delete Post', ['class'=>'btn btn-danger']) !!}
+	{!! Form::close() !!}
+	
+	<!-- <form action="/posts/{{$post->id}}" method="post">
 		<input type="hidden" name="_method" value="DELETE" />
 		{{csrf_field()}}
 		<input type="submit" value="DELETE" />
-	</form>
+	</form> -->
 	
 	
 @stop
