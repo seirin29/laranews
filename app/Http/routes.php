@@ -236,11 +236,12 @@ Route::get('/dates', function(){
 	echo Carbon::now()->subMonths(5)->diffForhumans();
 	echo "<br />";
 	echo Carbon::now()->yesterday()->diffForhumans();
-	
-	
-	
+
 });
 
-
+Route::get('/getname', function(){
+	$user = User::find(1);
+	return $user->name;
+});
 
 
