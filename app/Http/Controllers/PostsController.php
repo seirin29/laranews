@@ -135,11 +135,11 @@ class PostsController extends Controller
 	//}
 	
 	
-	public function index()
-	{	
-		$posts = Post::all();
-		return view('posts.index', compact('posts'));
-	}
+	//public function index()
+	//{	
+		//$posts = Post::all();
+		//return view('posts.index', compact('posts'));
+	//}
 	
 	//gak jalan	
 	//public function show($id)
@@ -178,6 +178,9 @@ class PostsController extends Controller
 		Post::create($request->all());
 	}
 	
-	
+	public function index(){
+		$posts = Post::latest();
+		return view('posts.index', compact('posts'));
+	}
 	
 }
