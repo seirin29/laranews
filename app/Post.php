@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Post extends Model
 {
     //
+	public $directory = '/images/';
 	use SoftDeletes;
 	protected $dates = ['deleted_at'];
 	protected $fillable = [
@@ -36,6 +37,9 @@ class Post extends Model
 		
 	}
 	
+	public function getPathAttribute($value){
+		return $this->directory . $value;
+	}
 
 	
 }
